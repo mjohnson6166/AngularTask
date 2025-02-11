@@ -1,0 +1,13 @@
+<mat-card class="user-card">
+    <mat-card-header>
+        <mat-card-title class="user-card-title">
+            {{ user.name }}
+            <crx-favorite-button [id]="user.id" class="favorite-button" />
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content [routerLink]="['/user', user.id]" class="user-card-content">
+        <div><mat-icon class="icon-user">account_box</mat-icon></div>
+        <div>{{ user.email }}</div>
+        <div>{{ user.phone }}</div>
+    </mat-card-content>
+</mat-card>

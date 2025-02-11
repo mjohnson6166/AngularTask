@@ -1,0 +1,7 @@
+<button (click)="clickFavorite()" aria-label="Favorite User" class="favorite-button" mat-icon-button>
+    @if (favorite) {
+        <mat-icon>star</mat-icon>
+    } @else {
+        <mat-icon>star_border</mat-icon>
+    }
+</button>

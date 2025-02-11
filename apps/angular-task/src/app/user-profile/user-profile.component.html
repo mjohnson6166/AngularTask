@@ -1,0 +1,42 @@
+<div class="user-profile">
+    @if (user$ | async; as user) {
+        <div class="user-profile-header">
+            <h2>{{ user.name }}</h2>
+            <crx-favorite-button [id]="user.id" />
+        </div>
+
+        <div class="user-profile-content">
+            <div class="user-profile-section">
+                <div class="user-profile-section-header">
+                    <h6>Details</h6>
+                    <mat-divider />
+                </div>
+                <div class="user-detail-info"><span class="info-name">Username</span> {{ user.username }}</div>
+                <div class="user-detail-info"><span class="info-name">Email</span> {{ user.email }}</div>
+                <div class="user-detail-info"><span class="info-name">Phone</span> {{ user.phone }}</div>
+            </div>
+
+            <div class="user-profile-section">
+                <div class="user-profile-section-header">
+                    <h6>Address</h6>
+                    <mat-divider />
+                </div>
+                <div>{{ user.address.street }}</div>
+                <div>{{ user.address.suite }}</div>
+                <div>{{ user.address.city }}, {{ user.address.zipcode }}</div>
+            </div>
+
+            <div class="user-profile-section">
+                <div class="user-profile-section-header">
+                    <h6>Company Info</h6>
+                    <mat-divider />
+                </div>
+                <div class="user-detail-info"><span class="info-name">Name</span> {{ user.company.name }}</div>
+                <div class="user-detail-info"><span class="info-name">Catchphrase</span> {{ user.company.catchPhrase }}</div>
+                <div class="user-detail-info"><span class="info-name">Business</span> {{ user.company.bs }}</div>
+            </div>
+        </div>
+    } @else {
+        <p>User does not exist</p>
+    }
+</div>

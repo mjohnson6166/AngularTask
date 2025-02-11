@@ -1,0 +1,17 @@
+<div class="grid-container">
+    <h1 class="mat-h1">Users</h1>
+
+    <mat-slide-toggle (change)="showFavoritesUserList($event)" aria-label="Filter favorite users" class="filter-favorites" hideIcon="true">
+        Show favorites
+    </mat-slide-toggle>
+
+    <mat-grid-list class="user-list" cols="2" rowHeight="350px">
+        @for (user of users$ | async; track user.id) {
+            <mat-grid-tile [colspan]="1" [rowspan]="1" class="user-item">
+                <crx-user-card [user]="user" />
+            </mat-grid-tile>
+        } @empty {
+            Oh no! There are no users available.
+        }
+    </mat-grid-list>
+</div>
